@@ -11,15 +11,29 @@ const getResult = (a,b) => {
   return a+b;
 }
 
+import PropTypes from 'prop-types';
 
-export const FirstApp = () => {
+export const FirstApp = ({ 
+  title, 
+  subTitle
+}) => {
   return (
     <>
-    <h1>Luis Montoya</h1>
+    <h1>{ title }</h1>
     {/*<h1>{ getResult(4,5) }</h1>*/}
        {/*<code>{ JSON.stringify(newMessage) }</code>*/}
-       <p>Este es un párrafo</p>
+       <p>{ subTitle }</p>
     </>
    
   )
+}
+
+
+FirstApp.propTypes = {
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string,
+}
+
+FirstApp.defaultProps = {
+  title: 'Sin titulo'
 }
